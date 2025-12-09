@@ -81,5 +81,3 @@ window.addEventListener('scroll', () => {
         parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
-
-console.log('Portfolio site loaded successfully!');
