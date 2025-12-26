@@ -1,999 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyas Sudarshanam - Data Engineer & AI Practitioner</title>
-    <meta name="description" content="Data Engineer with 3 years at Deloitte. MSc AI. Specializing in predictive ML models, ETL pipelines, and data-driven solutions.">
-    <meta name="keywords" content="Data Engineer, Machine Learning, Python, SQL, Snowflake, Oracle, AI, Dublin">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-color: #2E6DF5;
-            --primary-hover: #1E5FD9;
-            --secondary-color: #1F2937;
-            --accent-color: #10B981;
-            --text-primary: #111827;
-            --text-secondary: #6B7280;
-            --border-color: #E5E7EB;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #FFFFFF;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .logo-dot {
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            padding: 80px 0 100px;
-            background: linear-gradient(135deg, #F3F4F6 0%, #FFFFFF 100%);
-        }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 500px;
-            line-height: 1.8;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2.5rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 2.5rem 0 2rem;
-        }
-
-        .btn {
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .hero-meta {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .hero-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .visa-status {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .code-block {
-            background: var(--secondary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .code-lang {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .code-block code {
-            color: #E5E7EB;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            display: block;
-            white-space: pre-wrap;
-        }
-
-        /* About Cards */
-        .about-quick {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .about-card {
-            padding: 2rem;
-            background: #F9FAFB;
-            border-radius: 12px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .about-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .about-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .about-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 100px 0;
-            background: #FAFBFC;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .project-card:hover {
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 10px;
-            font-size: 1.5rem;
-        }
-
-        .project-status {
-            font-size: 0.8rem;
-            padding: 0.4rem 0.8rem;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 20px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .project-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: #F9FAFB;
-            border-radius: 8px;
-        }
-
-        .metric {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .project-problem,
-        .project-solution {
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--primary-color);
-            background: #F0F9FF;
-            border-radius: 4px;
-            font-size: 0.95rem;
-        }
-
-        .project-solution {
-            background: #F0FDF4;
-            border-left-color: var(--accent-color);
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            padding: 0.4rem 0.8rem;
-            background: #E0E7FF;
-            color: var(--primary-color);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .results-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .results-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        .results-list li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-link:hover {
-            color: var(--primary-hover);
-            gap: 0.75rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-group {
-            padding: 2rem;
-            background: #F9FAFB;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .skill-category {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-category:before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 20px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-item {
-            padding: 0.5rem 1rem;
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            background: #EFF6FF;
-        }
-
-        .skill-item.cert {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background: #F0FDF4;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1E5FD9 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-section .btn-primary {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .cta-section .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 3rem 0;
-            background: var(--secondary-color);
-            color: #D1D5DB;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer p {
-            margin: 0.5rem 0;
-        }
-
-        .footer a {
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .cta-buttons,
-            .contact-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shreyas Sudarshanam | Analytics Engineer</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #ffffff;
+    }
+
+    a {
+      color: #0057b8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 700px;
+    }
+
+    .cta {
+      margin-top: 20px;
+    }
+
+    .cta a {
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .project {
+      margin-bottom: 40px;
+    }
+
+    .project h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      max-width: 800px;
+    }
+
+    .project ul {
+      margin-top: 10px;
+    }
+
+    .project ul li {
+      margin-bottom: 6px;
+    }
+
+    .stack {
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    footer {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo">
-                    <span>Shreyas Sudarshanam</span>
-                    <span class="logo-dot">.</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div>
-                <h1 class="hero-title">
-                    Data Engineer &<br>AI Practitioner
-                </h1>
-                <p class="hero-subtitle">
-                    Building intelligent data systems that drive business impact. 
-                    3 years at Deloitte. Pursuing MSc in AI.
-                </p>
-                <div class="hero-stats">
-                    <div>
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div>
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">ML Projects</div>
-                    </div>
-                    <div>
-                        <div class="stat-number">73%</div>
-                        <div class="stat-label">Model Accuracy</div>
-                    </div>
-                </div>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="https://github.com/shreyas-sudarshanam" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/shreyas-sudarshanam" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-                <div class="hero-meta">
-                    <span class="visa-status">
-                        <i class="fas fa-check-circle"></i> 
-                        Stamp 1G Eligible Sept 2026
-                    </span>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i> 
-                        Dublin, Ireland
-                    </span>
-                </div>
-            </div>
-            <div>
-                <div class="code-block">
-                    <span class="code-lang">Python</span>
-                    <code>model = RandomForest()
-model.fit(X_train, y_train)
-predictions = model.predict(X_test)
+  <div class="container">
 
-accuracy = 0.7351
-print("Production Ready ✓")</code>
-                </div>
-            </div>
-        </div>
+    <!-- HERO -->
+    <header>
+      <h1>Analytics Engineer | Cloud Analytics (Snowflake, SQL)</h1>
+      <p>
+        I design SQL-first analytics pipelines that transform raw and legacy data
+        into decision-ready datasets for business and product teams.
+      </p>
+
+      <div class="cta">
+        <a href="https://github.com/Shreyas1432" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/shreyas-sudarshanam/" target="_blank">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>About</h2>
+      <p>
+        I am an analytics-focused data engineer with ~3 years of experience working
+        on enterprise data migration and analytics initiatives at Deloitte.
+      </p>
+      <p>
+        My core strength is building SQL-driven ETL pipelines and analytics-ready
+        data models that support reporting, insights, and downstream AI/ML use cases.
+      </p>
+      <p>
+        I am currently completing an MSc in Artificial Intelligence at NCI Dublin,
+        with a focus on analytics systems, data engineering, and decision-support
+        applications rather than research-heavy modeling.
+      </p>
     </section>
 
-    <!-- About Quick Section -->
-    <section class="about-quick">
-        <div class="container">
-            <div class="about-cards">
-                <div class="about-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Problem Solver</h3>
-                    <p>Identify real-world problems and build data-driven solutions that create measurable business value.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Full Stack Data</h3>
-                    <p>From data pipelines to ML models to dashboards. End-to-end ownership.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Impact Focused</h3>
-                    <p>Every project quantified: 73% accuracy, €2.3M savings, 156% growth.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Continuous Learner</h3>
-                    <p>MSc AI student. Learning Snowflake & Oracle Analytics Cloud.</p>
-                </div>
-            </div>
-        </div>
+    <!-- PROJECTS -->
+    <section>
+      <h2>Selected Analytics Projects</h2>
+
+      <!-- PROJECT 1 -->
+      <div class="project">
+        <h3>Irish Employment Analytics – Cloud ETL & Data Modeling</h3>
+        <p>
+          An end-to-end analytics project focused on transforming 26 years of Irish
+          employment data into analytics-ready datasets for trend analysis and reporting.
+        </p>
+
+        <ul>
+          <li>Built an ETL pipeline to ingest, clean, and transform long-term employment datasets</li>
+          <li>Designed analytics-ready data structures to support sector and region-level analysis</li>
+          <li>Generated insights on employment trends for policy and workforce planning</li>
+          <li>Focused on SQL-style transformations and analytics logic rather than model-centric approaches</li>
+        </ul>
+
+        <p class="stack">
+          Tech stack: Python, SQL, MongoDB
+        </p>
+
+        <p>
+          <a href="https://github.com/Shreyas1432/Irish-Employment-Analytics" target="_blank">
+            View on GitHub →
+          </a>
+        </p>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project">
+        <h3>Healthcare Analytics System – Capacity & Demand Insights</h3>
+        <p>
+          An analytics system combining historical healthcare procedure volumes and
+          waiting-time data to identify capacity bottlenecks and future risk areas.
+        </p>
+
+        <ul>
+          <li>Integrated multi-year healthcare datasets into a unified analytics pipeline</li>
+          <li>Engineered business-focused features to highlight demand and capacity pressure points</li>
+          <li>Produced analytics outputs suitable for operational planning and reporting</li>
+          <li>Used predictive techniques only as a supporting tool for analytics insights</li>
+        </ul>
+
+        <p class="stack">
+          Tech stack: Python, SQL, Pandas
+        </p>
+
+        <p>
+          <a href="https://github.com/Shreyas1432/Healthcare-Analytics" target="_blank">
+            View on GitHub →
+          </a>
+        </p>
+      </div>
+
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Production-grade ML models solving real business problems</p>
-            
-            <div class="projects-grid">
-                <!-- Healthcare Project -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-hospital"></i>
-                        </div>
-                        <span class="project-status">Deployed</span>
-                    </div>
-                    <h3>Healthcare Bottleneck Forecasting</h3>
-                    <p class="project-description">
-                        Predictive ML model forecasting healthcare system bottlenecks 12 months in advance, enabling proactive resource allocation.
-                    </p>
-                    
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Accuracy</span>
-                            <span class="metric-value">73.5%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Impact</span>
-                            <span class="metric-value">€500K</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Records</span>
-                            <span class="metric-value">150K+</span>
-                        </div>
-                    </div>
+    <!-- SKILLS -->
+    <section>
+      <h2>Skills</h2>
 
-                    <div class="project-problem">
-                        <strong>Problem:</strong> Hospital administrators can't anticipate capacity constraints, leading to reactive crisis management.
-                    </div>
-
-                    <div class="project-solution">
-                        <strong>Solution:</strong> Random Forest model analyzing 15 years of procedure data with feature engineering (volume, volatility, growth).
-                    </div>
-
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Random Forest</span>
-                        <span class="tech-tag">SQL</span>
-                    </div>
-
-                    <ul class="results-list">
-                        <li>F1-Score: 0.7351 with 85.23% CV accuracy</li>
-                        <li>Identified 26,438 high-risk combinations</li>
-                        <li>Dublin/Cork = 47% of risk despite 35% of procedures</li>
-                        <li>Hospital integration ready for deployment</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a href="https://github.com/shreyas-sudarshanam/healthcare-bottleneck-forecasting" target="_blank" class="btn-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Employment Analytics Project -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <span class="project-status">Active</span>
-                    </div>
-                    <h3>Irish Employment Analytics ETL</h3>
-                    <p class="project-description">
-                        Cloud-based ETL pipeline analyzing 26 years of Irish employment data across 15 economic sectors with advanced SQL.
-                    </p>
-                    
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Speed</span>
-                            <span class="metric-value">2.9x</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Records</span>
-                            <span class="metric-value">10K+</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Time Period</span>
-                            <span class="metric-value">26 yrs</span>
-                        </div>
-                    </div>
-
-                    <div class="project-problem">
-                        <strong>Problem:</strong> Manual data processing is time-consuming, error-prone, and lacks analytical depth for policy decisions.
-                    </div>
-
-                    <div class="project-solution">
-                        <strong>Solution:</strong> SQL-first ETL pipeline on PostgreSQL cloud with window functions, CTEs, automated cleaning and feature engineering.
-                    </div>
-
-                    <div class="project-tech">
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">ETL</span>
-                        <span class="tech-tag">Pandas</span>
-                    </div>
-
-                    <ul class="results-list">
-                        <li>40% faster processing than pandas-only approach</li>
-                        <li>Professional/Scientific sector: +156% growth</li>
-                        <li>Manufacturing: -18% decline (automation)</li>
-                        <li>Window functions 2.9x faster than pandas</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a href="https://github.com/shreyas-sudarshanam/employment-analytics" target="_blank" class="btn-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div class="skills">
+        <div>
+          <strong>Core</strong>
+          <ul>
+            <li>SQL</li>
+            <li>Snowflake</li>
+            <li>Analytics Engineering</li>
+            <li>Data Modeling</li>
+            <li>ETL Pipelines</li>
+          </ul>
         </div>
+
+        <div>
+          <strong>Supporting</strong>
+          <ul>
+            <li>Python (Data Processing)</li>
+            <li>PostgreSQL</li>
+            <li>Git</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Stack</h2>
-            <p class="section-subtitle">Tools & technologies I work with daily</p>
-            
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3 class="skill-category">Languages</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">C++</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-category">Data & Databases</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Snowflake</span>
-                        <span class="skill-item">Oracle</span>
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">PySpark</span>
-                        <span class="skill-item">ETL</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-category">Machine Learning</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">XGBoost</span>
-                        <span class="skill-item">TensorFlow</span>
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">NLP</span>
-                        <span class="skill-item">GenAI</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-category">Visualization & BI</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Power BI</span>
-                        <span class="skill-item">Tableau</span>
-                        <span class="skill-item">Matplotlib</span>
-                        <span class="skill-item">Plotly</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-category">Cloud & DevOps</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">OCI</span>
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">Docker</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-category">Certifications</h3>
-                    <div class="skill-items">
-                        <span class="skill-item cert">Oracle GenAI 2024</span>
-                        <span class="skill-item cert">Oracle Vector Search</span>
-                        <span class="skill-item cert">OCI Foundations</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2>Let's Build Something Together</h2>
-            <p>Always interested in connecting with recruiters and engineers working on meaningful data problems.</p>
-            
-            <div class="contact-buttons">
-                <a href="mailto:shreyas.sudarshanam@outlook.com" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
-                <a href="https://linkedin.com/in/shreyas-sudarshanam" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/shreyas-sudarshanam" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Shreyas Sudarshanam. Building data systems that matter.</p>
-            <p>Dublin, Ireland | <a href="mailto:shreyas.sudarshanam@outlook.com">shreyas.sudarshanam@outlook.com</a></p>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        Dublin, Ireland · Open to full-time roles · Visa sponsorship required
+      </p>
     </footer>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const element = document.querySelector(href);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        });
+  </div>
 
-        // Update active nav link
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 200) {
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    const navLink = document.querySelector(`a[href="#${section.id}"]`);
-                    if (navLink) navLink.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
