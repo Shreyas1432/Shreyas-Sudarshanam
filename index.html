@@ -8,14 +8,14 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background-color: #ffffff;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: #1f2933;
+      background-color: #f9fafb;
     }
 
     a {
-      color: #0057b8;
+      color: #0b5ed7;
       text-decoration: none;
     }
 
@@ -24,100 +24,114 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 50px 24px;
+      background: #ffffff;
     }
 
     header {
-      margin-bottom: 60px;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      max-width: 700px;
-    }
-
-    .cta {
-      margin-top: 20px;
-    }
-
-    .cta a {
-      margin-right: 20px;
-      font-weight: bold;
-    }
-
-    section {
       margin-bottom: 70px;
     }
 
+    header h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    header .tagline {
+      font-size: 20px;
+      color: #374151;
+      max-width: 850px;
+    }
+
+    header .meta {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #4b5563;
+    }
+
+    header .links {
+      margin-top: 18px;
+    }
+
+    header .links a {
+      margin-right: 22px;
+      font-weight: 600;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
     section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
+      font-size: 30px;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
     }
 
     .project {
-      margin-bottom: 40px;
+      margin-bottom: 55px;
+      padding-left: 15px;
+      border-left: 4px solid #e5e7eb;
     }
 
     .project h3 {
       font-size: 22px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .project p {
-      max-width: 800px;
+      max-width: 900px;
+      color: #374151;
     }
 
     .project ul {
-      margin-top: 10px;
+      margin: 15px 0 18px 22px;
     }
 
-    .project ul li {
-      margin-bottom: 6px;
+    .project li {
+      margin-bottom: 8px;
     }
 
     .stack {
+      font-size: 14px;
       font-style: italic;
-      margin-top: 8px;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      color: #6b7280;
     }
 
     footer {
-      border-top: 1px solid #eee;
-      padding-top: 20px;
+      margin-top: 80px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
       font-size: 14px;
+      color: #6b7280;
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
 
-    <!-- HERO -->
+    <!-- HEADER -->
     <header>
-      <h1>Analytics Engineer | Cloud Analytics (Snowflake, SQL)</h1>
-      <p>
-        I design SQL-first analytics pipelines that transform raw and legacy data
-        into decision-ready datasets for business and product teams.
+      <h1>Shreyas Sudarshanam</h1>
+
+      <p class="tagline">
+        Analytics Engineer specialising in Snowflake, dbt, and SQL, focused on
+        building reliable, cost-efficient analytics platforms that support
+        business and product decision-making.
       </p>
 
-      <div class="cta">
+      <p class="meta">
+        Dublin, Ireland · Open to full-time roles · Open to relocation across Ireland · Stamp 1G · CSEP-eligible
+      </p>
+
+      <div class="links">
+        <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank">LinkedIn</a>
         <a href="https://github.com/Shreyas1432" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/shreyas-sudarshanam/" target="_blank">LinkedIn</a>
       </div>
     </header>
 
@@ -125,17 +139,16 @@
     <section>
       <h2>About</h2>
       <p>
-        I am an analytics-focused data engineer with ~3 years of experience working
-        on enterprise data migration and analytics initiatives at Deloitte.
+        I am an Analytics Engineer with experience designing end-to-end analytics
+        workflows across cloud data platforms. My work focuses on transforming
+        raw operational data into trusted, analytics-ready datasets using
+        dimensional modeling, data quality validation, and cost-aware cloud
+        design.
       </p>
       <p>
-        My core strength is building SQL-driven ETL pipelines and analytics-ready
-        data models that support reporting, insights, and downstream AI/ML use cases.
-      </p>
-      <p>
-        I am currently completing an MSc in Artificial Intelligence at NCI Dublin,
-        with a focus on analytics systems, data engineering, and decision-support
-        applications rather than research-heavy modeling.
+        My background spans analytics engineering, cloud data warehousing, and
+        enterprise-style data modeling. I am open to relocation across Ireland
+        for analytics engineering and cloud analytics roles.
       </p>
     </section>
 
@@ -143,95 +156,94 @@
     <section>
       <h2>Selected Analytics Projects</h2>
 
-      <!-- PROJECT 1 -->
+      <!-- PROJECT 1: SNOWFLAKE -->
+      <div class="project">
+        <h3>End-to-End Analytics Platform on Snowflake</h3>
+        <p>
+          A production-style analytics engineering platform built on Snowflake
+          using dbt, simulating an enterprise sales domain and delivering
+          business-ready analytics through curated data models.
+        </p>
+
+        <ul>
+          <li>Designed a layered Snowflake architecture (RAW → CURATED → MARTS) following analytics engineering best practices</li>
+          <li>Built star-schema models with validated dimension and fact tables using dbt</li>
+          <li>Enforced data quality using dbt tests (not-null, uniqueness, domain validation)</li>
+          <li>Created analytics marts for monthly revenue and customer spend to support fast ad-hoc analysis</li>
+          <li>Implemented cost-aware warehouse strategy with auto-suspend and controlled raw data access</li>
+        </ul>
+
+        <p class="stack">
+          Tech stack: Snowflake, dbt, SQL, Python, Git
+        </p>
+
+        <p>
+          <a href="https://github.com/Shreyas1432/snowflake-analytics-engineering" target="_blank">
+            View project on GitHub →
+          </a>
+        </p>
+      </div>
+
+      <!-- PROJECT 2: IRISH EMPLOYMENT -->
       <div class="project">
         <h3>Irish Employment Analytics – Cloud ETL & Data Modeling</h3>
         <p>
-          An end-to-end analytics project focused on transforming 26 years of Irish
-          employment data into analytics-ready datasets for trend analysis and reporting.
+          An analytics project focused on analysing employment trends in Ireland
+          using cloud-based ETL pipelines and structured data modeling techniques.
         </p>
 
         <ul>
-          <li>Built an ETL pipeline to ingest, clean, and transform long-term employment datasets</li>
-          <li>Designed analytics-ready data structures to support sector and region-level analysis</li>
-          <li>Generated insights on employment trends for policy and workforce planning</li>
-          <li>Focused on SQL-style transformations and analytics logic rather than model-centric approaches</li>
+          <li>Designed ETL workflows to ingest and transform employment datasets</li>
+          <li>Applied analytical queries to identify sector-level and regional employment patterns</li>
+          <li>Focused on data consistency, reproducibility, and analytical clarity</li>
         </ul>
 
         <p class="stack">
-          Tech stack: Python, SQL, MongoDB
-        </p>
-
-        <p>
-          <a href="https://github.com/Shreyas1432/Irish-Employment-Analytics" target="_blank">
-            View on GitHub →
-          </a>
+          Tech stack: SQL, Python, Cloud Storage
         </p>
       </div>
 
-      <!-- PROJECT 2 -->
+      <!-- PROJECT 3: HEALTHCARE -->
       <div class="project">
         <h3>Healthcare Analytics System – Capacity & Demand Insights</h3>
         <p>
-          An analytics system combining historical healthcare procedure volumes and
-          waiting-time data to identify capacity bottlenecks and future risk areas.
+          An analytics system designed to support healthcare capacity planning
+          by analysing patient demand, resource utilisation, and operational
+          constraints.
         </p>
 
         <ul>
-          <li>Integrated multi-year healthcare datasets into a unified analytics pipeline</li>
-          <li>Engineered business-focused features to highlight demand and capacity pressure points</li>
-          <li>Produced analytics outputs suitable for operational planning and reporting</li>
-          <li>Used predictive techniques only as a supporting tool for analytics insights</li>
+          <li>Modeled healthcare datasets to analyse capacity and demand trends</li>
+          <li>Built analytical queries to support decision-making in resource planning</li>
+          <li>Emphasised data accuracy and interpretability for non-technical stakeholders</li>
         </ul>
 
         <p class="stack">
-          Tech stack: Python, SQL, Pandas
-        </p>
-
-        <p>
-          <a href="https://github.com/Shreyas1432/Healthcare-Analytics" target="_blank">
-            View on GitHub →
-          </a>
+          Tech stack: SQL, Python, Data Analysis
         </p>
       </div>
-
     </section>
 
     <!-- SKILLS -->
     <section>
       <h2>Skills</h2>
-
-      <div class="skills">
-        <div>
-          <strong>Core</strong>
-          <ul>
-            <li>SQL</li>
-            <li>Snowflake</li>
-            <li>Analytics Engineering</li>
-            <li>Data Modeling</li>
-            <li>ETL Pipelines</li>
-          </ul>
-        </div>
-
-        <div>
-          <strong>Supporting</strong>
-          <ul>
-            <li>Python (Data Processing)</li>
-            <li>PostgreSQL</li>
-            <li>Git</li>
-          </ul>
-        </div>
-      </div>
+      <ul>
+        <li><strong>Analytics Engineering:</strong> Dimensional Modeling, Star Schema, Data Quality Testing</li>
+        <li><strong>Data Warehousing:</strong> Snowflake</li>
+        <li><strong>Transformation & Modeling:</strong> dbt</li>
+        <li><strong>Querying:</strong> Advanced SQL</li>
+        <li><strong>Programming:</strong> Python (data processing & ETL)</li>
+        <li><strong>Tools:</strong> Git, GitHub</li>
+      </ul>
     </section>
 
     <!-- FOOTER -->
     <footer>
       <p>
-        Dublin, Ireland · Open to full-time roles · Stamp 1G (post-study) · CSEP-eligible
+        © 2026 Shreyas Sudarshanam · Analytics Engineer · Open to relocation across Ireland
       </p>
     </footer>
 
   </div>
-
 </body>
 </html>
