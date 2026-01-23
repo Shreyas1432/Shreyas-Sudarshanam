@@ -43,7 +43,7 @@
     header .tagline {
       font-size: 20px;
       color: #374151;
-      max-width: 850px;
+      max-width: 900px;
     }
 
     header .meta {
@@ -72,27 +72,27 @@
       padding-bottom: 8px;
     }
 
-    .project {
+    .project, .experience {
       margin-bottom: 55px;
       padding-left: 15px;
       border-left: 4px solid #e5e7eb;
     }
 
-    .project h3 {
+    .project h3, .experience h3 {
       font-size: 22px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .project p {
-      max-width: 900px;
+    .project p, .experience p {
+      max-width: 950px;
       color: #374151;
     }
 
-    .project ul {
+    ul {
       margin: 15px 0 18px 22px;
     }
 
-    .project li {
+    li {
       margin-bottom: 8px;
     }
 
@@ -120,9 +120,8 @@
       <h1>Shreyas Sudarshanam</h1>
 
       <p class="tagline">
-        Analytics Engineer specialising in Snowflake, dbt, and SQL, focused on
-        building reliable, cost-efficient analytics platforms that support
-        business and product decision-making.
+        Analytics Engineer with strong SQL and cloud data warehouse experience, specialising in Snowflake and dbt to build analytics-ready datasets that
+        support business and product decision-making.
       </p>
 
       <p class="meta">
@@ -139,38 +138,52 @@
     <section>
       <h2>About</h2>
       <p>
-        I am an Analytics Engineer with experience designing end-to-end analytics
-        workflows across cloud data platforms. My work focuses on transforming
-        raw operational data into trusted, analytics-ready datasets using
-        dimensional modeling, data quality validation, and cost-aware cloud
-        design.
+        Analytics Engineer with a background in enterprise data consulting at Deloitte and hands-on experience building SQL-driven analytics pipelines across cloud
+        data warehouses. I focus on transforming raw enterprise data into trusted, analytics-ready datasets using dimensional modeling, ELT best practices,
+        and data quality validation.
       </p>
       <p>
-        My background spans analytics engineering, cloud data warehousing, and
-        enterprise-style data modeling. I am open to relocation across Ireland
-        for analytics engineering and cloud analytics roles.
+        Currently pursuing an MSc in Artificial Intelligence while actively seeking analytics engineering and cloud analytics roles across Ireland.
       </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="experience">
+        <h3>Analytics Engineer — Deloitte USI</h3>
+        <p><em>Dec 2022 – Aug 2025</em></p>
+
+        <ul>
+          <li>Designed, optimized, and maintained complex SQL-based transformation logic in Snowflake and PostgreSQL, converting raw enterprise data into analytics-ready datasets for reporting and reconciliation use cases.</li>
+          <li>Built and performance-tuned SQL transformation pipelines using query optimization techniques, execution-plan analysis, and indexing strategies, improving query efficiency by ~60%.</li>
+          <li>Translated business and data-mapping specifications into scalable SQL transformation logic, ensuring consistent metric definitions and traceability across systems.</li>
+          <li>Developed and automated ELT workflows using PostgreSQL, Python, and SQL-based transformations to standardize data cleansing and validation.</li>
+          <li>Analyzed complex relational data models to identify data dependencies, grain mismatches, and transformation requirements aligned with analytical reporting needs.</li>
+          <li>Collaborated with business analysts and stakeholders to gather requirements, validate outputs, and ensure datasets accurately reflected business rules.</li>
+          <li>Contributed to internal analytics acceleration initiatives using AI-assisted SQL analysis and optimization techniques.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- PROJECTS -->
     <section>
       <h2>Selected Analytics Projects</h2>
 
-      <!-- PROJECT 1: SNOWFLAKE -->
+      <!-- SNOWFLAKE PROJECT -->
       <div class="project">
         <h3>End-to-End Analytics Platform on Snowflake</h3>
         <p>
-          A production-style analytics engineering platform built on Snowflake
-          using dbt, simulating an enterprise sales domain and delivering
-          business-ready analytics through curated data models.
+          A production-style analytics engineering platform built on Snowflake using dbt, simulating an enterprise sales domain and delivering business-ready analytics.
         </p>
 
         <ul>
           <li>Designed a layered Snowflake architecture (RAW → CURATED → MARTS) following analytics engineering best practices</li>
-          <li>Built star-schema models with validated dimension and fact tables using dbt</li>
-          <li>Enforced data quality using dbt tests (not-null, uniqueness, domain validation)</li>
-          <li>Created analytics marts for monthly revenue and customer spend to support fast ad-hoc analysis</li>
-          <li>Implemented cost-aware warehouse strategy with auto-suspend and controlled raw data access</li>
+          <li>Modeled star schema with validated dimension and fact tables using dbt</li>
+          <li>Enforced data quality using dbt tests (not-null, uniqueness, domain checks)</li>
+          <li>Built analytics marts for monthly revenue and customer spend optimized for low-latency queries</li>
+          <li>Implemented cost-aware warehouse strategy with auto-suspend and restricted raw access</li>
         </ul>
 
         <p class="stack">
@@ -184,42 +197,49 @@
         </p>
       </div>
 
-      <!-- PROJECT 2: IRISH EMPLOYMENT -->
+      <!-- IRISH EMPLOYMENT -->
       <div class="project">
-        <h3>Irish Employment Analytics – Cloud ETL & Data Modeling</h3>
+        <h3>Irish Employment Analytics</h3>
         <p>
-          An analytics project focused on analysing employment trends in Ireland
-          using cloud-based ETL pipelines and structured data modeling techniques.
+          Analytics project examining employment trends across regions and sectors in Ireland using structured SQL-based transformations.
         </p>
 
         <ul>
-          <li>Designed ETL workflows to ingest and transform employment datasets</li>
-          <li>Applied analytical queries to identify sector-level and regional employment patterns</li>
-          <li>Focused on data consistency, reproducibility, and analytical clarity</li>
+          <li>Developed SQL transformations to structure raw public datasets into reporting-ready tables</li>
+          <li>Enabled analysis of employment growth patterns and sector-level distribution</li>
         </ul>
 
         <p class="stack">
-          Tech stack: SQL, Python, Cloud Storage
+          Tech stack: SQL, Python
+        </p>
+
+        <p>
+          <a href="https://github.com/Shreyas1432/Irish-Employment-Analytics" target="_blank">
+            View project on GitHub →
+          </a>
         </p>
       </div>
 
-      <!-- PROJECT 3: HEALTHCARE -->
+      <!-- HEALTHCARE -->
       <div class="project">
-        <h3>Healthcare Analytics System – Capacity & Demand Insights</h3>
+        <h3>Healthcare Analytics System</h3>
         <p>
-          An analytics system designed to support healthcare capacity planning
-          by analysing patient demand, resource utilisation, and operational
-          constraints.
+          Built analytics-ready datasets integrating healthcare procedures and waiting-time data to support capacity and demand analysis.
         </p>
 
         <ul>
-          <li>Modeled healthcare datasets to analyse capacity and demand trends</li>
-          <li>Built analytical queries to support decision-making in resource planning</li>
-          <li>Emphasised data accuracy and interpretability for non-technical stakeholders</li>
+          <li>Designed SQL transformation logic to clean, join, and standardize multi-source datasets</li>
+          <li>Analyzed trends and operational bottlenecks to support data-driven insights</li>
         </ul>
 
         <p class="stack">
-          Tech stack: SQL, Python, Data Analysis
+          Tech stack: SQL, Python
+        </p>
+
+        <p>
+          <a href="https://github.com/Shreyas1432/Healthcare-Analytics" target="_blank">
+            View project on GitHub →
+          </a>
         </p>
       </div>
     </section>
@@ -228,12 +248,12 @@
     <section>
       <h2>Skills</h2>
       <ul>
-        <li><strong>Analytics Engineering:</strong> Dimensional Modeling, Star Schema, Data Quality Testing</li>
-        <li><strong>Data Warehousing:</strong> Snowflake</li>
-        <li><strong>Transformation & Modeling:</strong> dbt</li>
-        <li><strong>Querying:</strong> Advanced SQL</li>
-        <li><strong>Programming:</strong> Python (data processing & ETL)</li>
-        <li><strong>Tools:</strong> Git, GitHub</li>
+        <li><strong>Analytics & Data Engineering:</strong> Analytics Engineering, ELT Pipelines, Data Modeling (Fact & Dimension), Business & Product Analytics</li>
+        <li><strong>Databases & Warehousing:</strong> Snowflake, PostgreSQL, Oracle EBS, Oracle Fusion (FBDI)</li>
+        <li><strong>Querying & Programming:</strong> SQL (Advanced), Python (Analytics & Automation)</li>
+        <li><strong>BI & Visualization:</strong> Power BI, Tableau</li>
+        <li><strong>AI & Applied Analytics:</strong> Machine Learning, Generative AI, Prompt Engineering</li>
+        <li><strong>Tools & Collaboration:</strong> Git, GitHub</li>
       </ul>
     </section>
 
