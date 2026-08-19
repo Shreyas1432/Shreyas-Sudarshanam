@@ -1,4 +1,4 @@
-Hi, I'm Shreyas 👋
+ Hi, I'm Shreyas 👋
 Analytics Engineer · Data Analyst · Data Engineer — Dublin, Ireland.
 3 years turning enterprise ERP data into decisions people can trust (ex-Deloitte), finishing an MSc in AI at National College of Ireland. I build the layer between raw systems and results that hold up under scrutiny.
 
