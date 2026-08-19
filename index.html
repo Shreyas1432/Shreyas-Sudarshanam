@@ -1,269 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shreyas Sudarshanam | Analytics Engineer</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-      color: #1f2933;
-      background-color: #f9fafb;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreyas Sudarshanam · Data Analyst, Analytics Engineer, Data Engineer</title>
+<meta name="description" content="Data professional, 3 years enterprise experience. Open to Data Analyst, Analytics Engineer, and Data Engineer roles across Ireland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3f1ea;
+    --panel: #ece8dd;
+    --ink: #191510;
+    --ink-soft: #4a4038;
+    --line: rgba(25, 21, 16, 0.16);
+    --line-strong: rgba(25, 21, 16, 0.32);
+    --brass: #8a6a2e;
+    --brass-ink: #f3f1ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #15120f;
+      --panel: #1c1814;
+      --ink: #ede7dc;
+      --ink-soft: #b6ab99;
+      --line: rgba(237, 231, 220, 0.14);
+      --line-strong: rgba(237, 231, 220, 0.28);
+      --brass: #c9a45c;
+      --brass-ink: #171310;
     }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15120f; --panel: #1c1814; --ink: #ede7dc; --ink-soft: #b6ab99;
+    --line: rgba(237, 231, 220, 0.14); --line-strong: rgba(237, 231, 220, 0.28);
+    --brass: #c9a45c; --brass-ink: #171310;
+  }
+  :root[data-theme="light"] {
+    --paper: #f3f1ea; --panel: #ece8dd; --ink: #191510; --ink-soft: #4a4038;
+    --line: rgba(25, 21, 16, 0.16); --line-strong: rgba(25, 21, 16, 0.32);
+    --brass: #8a6a2e; --brass-ink: #f3f1ea;
+  }
 
-    a {
-      color: #0b5ed7;
-      text-decoration: none;
-    }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--ink); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  .sheet { max-width: 760px; margin: 0 auto; padding: 64px 28px 100px; }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 24px;
-      background: #ffffff;
-    }
+  /* ---------- Masthead ---------- */
+  .masthead-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom: 46px;
+  }
+  .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brass); margin-right: 8px; }
 
-    header {
-      margin-bottom: 70px;
-    }
+  h1 {
+    font-family: "Fraunces", serif; font-weight: 600; font-optical-sizing: auto;
+    font-size: clamp(40px, 8vw, 62px); line-height: 1.02; letter-spacing: -0.01em;
+    margin: 0 0 6px; text-wrap: balance;
+  }
+  .role-strip {
+    font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
+    font-size: clamp(19px, 3vw, 24px); color: var(--brass); margin: 0 0 24px;
+  }
+  .lede {
+    font-size: 18px; max-width: 62ch; color: var(--ink-soft); margin: 0 0 30px;
+  }
+  .contact-line {
+    font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: var(--ink-soft);
+    display: flex; flex-wrap: wrap; gap: 4px 18px; margin-bottom: 30px;
+  }
+  .contact-line a { text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+  .contact-line a:hover { border-color: var(--brass); color: var(--brass); }
 
-    header h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  .btn {
+    font-family: "IBM Plex Mono", monospace; font-size: 13.5px; font-weight: 500;
+    padding: 12px 20px; border: 1px solid var(--line-strong); text-decoration: none;
+    color: var(--ink); letter-spacing: 0.01em;
+  }
+  .btn.solid { background: var(--brass); color: var(--brass-ink); border-color: var(--brass); }
+  .btn:hover { border-color: var(--brass); color: var(--brass); }
+  .btn.solid:hover { color: var(--brass-ink); opacity: 0.9; }
 
-    header .tagline {
-      font-size: 20px;
-      color: #374151;
-      max-width: 900px;
-    }
+  hr.rule { border: none; border-top: 1px solid var(--line); margin: 52px 0; }
 
-    header .meta {
-      margin-top: 12px;
-      font-size: 15px;
-      color: #4b5563;
-    }
+  /* ---------- Section labels ---------- */
+  .label {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-soft); margin: 0 0 22px;
+  }
+  .label .n { color: var(--brass); }
 
-    header .links {
-      margin-top: 18px;
-    }
+  /* ---------- Looking for ---------- */
+  .brief-grid { display: grid; grid-template-columns: 100px 1fr; gap: 12px 20px; }
+  .brief-grid dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px;
+  }
+  .brief-grid dd { margin: 0; font-size: 16px; }
 
-    header .links a {
-      margin-right: 22px;
-      font-weight: 600;
-    }
+  /* ---------- Flagship ---------- */
+  .flagship-tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--brass); margin-bottom: 10px; display: block;
+  }
+  h2.flagship-title {
+    font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(26px, 4vw, 34px);
+    margin: 0 0 14px; text-wrap: balance;
+  }
+  .flagship-lede { font-size: 16.5px; color: var(--ink-soft); max-width: 62ch; margin-bottom: 30px; }
 
-    section {
-      margin-bottom: 80px;
-    }
+  table.ledger { width: 100%; border-collapse: collapse; margin-bottom: 34px; }
+  table.ledger th {
+    text-align: left; font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+    text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft);
+    padding: 0 14px 10px 0; border-bottom: 1px solid var(--line-strong); font-weight: 500;
+  }
+  table.ledger td {
+    padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line); font-size: 14.5px;
+    vertical-align: top;
+  }
+  table.ledger td:first-child { font-family: "IBM Plex Mono", monospace; color: var(--brass); font-weight: 500; white-space: nowrap; }
 
-    section h2 {
-      font-size: 30px;
-      margin-bottom: 25px;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
-    }
+  .flagship-body h3 {
+    font-family: "IBM Plex Sans", sans-serif; font-size: 14px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.03em; margin: 26px 0 8px;
+  }
+  .flagship-body h3:first-child { margin-top: 0; }
+  .flagship-body p { margin: 0 0 4px; font-size: 15.5px; color: var(--ink-soft); max-width: 64ch; }
 
-    .project, .experience {
-      margin-bottom: 55px;
-      padding-left: 15px;
-      border-left: 4px solid #e5e7eb;
-    }
+  /* ---------- Experience ---------- */
+  .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 4px; }
+  .role-head h3 { font-family: "Fraunces", serif; font-weight: 600; font-size: 22px; margin: 0; }
+  .role-head .dates { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .role-sub { color: var(--brass); font-size: 14.5px; margin-bottom: 18px; font-family: "IBM Plex Mono", monospace; }
+  .cluster { margin-bottom: 20px; }
+  .cluster-label {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--ink-soft); margin-bottom: 8px;
+  }
+  ul.plain { margin: 0; padding: 0; list-style: none; }
+  ul.plain li {
+    position: relative; padding-left: 18px; margin-bottom: 9px; font-size: 15.5px;
+  }
+  ul.plain li::before { content: "—"; position: absolute; left: 0; color: var(--line-strong); }
 
-    .project h3, .experience h3 {
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
+  /* ---------- Skills ---------- */
+  .skill-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px 20px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .skill-row:last-child { border-bottom: 0; }
+  .skill-row dt { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); margin: 0; }
+  .skill-row dd { margin: 0; color: var(--ink); }
 
-    .project p, .experience p {
-      max-width: 950px;
-      color: #374151;
-    }
+  /* ---------- Projects ---------- */
+  .proj { padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .proj:first-child { padding-top: 0; }
+  .proj:last-child { border-bottom: 0; }
+  .proj-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 4px; }
+  .proj-top h3 { font-family: "Fraunces", serif; font-weight: 600; font-size: 20px; margin: 0; }
+  .proj-tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass); }
+  .proj-links { display: flex; gap: 18px; margin-top: 12px; }
+  .proj-links a { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-decoration: none; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  .proj-links a:hover { color: var(--brass); border-color: var(--brass); }
+  dl.why { display: grid; grid-template-columns: 128px 1fr; gap: 8px 20px; margin: 14px 0 0; }
+  dl.why dt { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brass); padding-top: 2px; }
+  dl.why dd { margin: 0; font-size: 14.5px; color: var(--ink-soft); max-width: 60ch; }
 
-    ul {
-      margin: 15px 0 18px 22px;
-    }
+  footer {
+    margin-top: 54px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
 
-    li {
-      margin-bottom: 8px;
-    }
-
-    .stack {
-      font-size: 14px;
-      font-style: italic;
-      color: #6b7280;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding-top: 25px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 14px;
-      color: #6b7280;
-    }
-  </style>
+  @media (max-width: 620px) {
+    .sheet { padding: 44px 20px 70px; }
+    .brief-grid, .skill-row { grid-template-columns: 1fr; }
+    .brief-grid dd { margin-bottom: 6px; }
+    table.ledger { display: block; overflow-x: auto; }
+    dl.why { grid-template-columns: 1fr; gap: 3px 0; }
+    dl.why dd { margin-bottom: 8px; }
+  }
+</style>
 </head>
-
 <body>
-  <div class="container">
+<div class="sheet">
 
-    <!-- HEADER -->
-    <header>
-      <h1>Shreyas Sudarshanam</h1>
-
-      <p class="tagline">
-        Analytics Engineer with strong SQL and cloud data warehouse experience, specialising in Snowflake and dbt to build analytics-ready datasets that
-        support business and product decision-making.
-      </p>
-
-      <p class="meta">
-        Dublin, Ireland · Open to full-time roles · Open to relocation across Ireland · Stamp 1G · CSEP-eligible
-      </p>
-
-      <div class="links">
-        <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank">LinkedIn</a>
-        <a href="https://github.com/Shreyas1432" target="_blank">GitHub</a>
-      </div>
-    </header>
-
-    <!-- ABOUT -->
-    <section>
-      <h2>About</h2>
-      <p>
-        Analytics Engineer with a background in enterprise data consulting at Deloitte and hands-on experience building SQL-driven analytics pipelines across cloud
-        data warehouses. I focus on transforming raw enterprise data into trusted, analytics-ready datasets using dimensional modeling, ELT best practices,
-        and data quality validation.
-      </p>
-      <p>
-        Currently pursuing an MSc in Artificial Intelligence while actively seeking analytics engineering and cloud analytics roles across Ireland.
-      </p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section>
-      <h2>Professional Experience</h2>
-
-      <div class="experience">
-        <h3>Analytics Engineer — Deloitte USI</h3>
-        <p><em>Dec 2022 – Aug 2025</em></p>
-
-        <ul>
-          <li>Designed, optimized, and maintained complex SQL-based transformation logic in Snowflake and PostgreSQL, converting raw enterprise data into analytics-ready datasets for reporting and reconciliation use cases.</li>
-          <li>Built and performance-tuned SQL transformation pipelines using query optimization techniques, execution-plan analysis, and indexing strategies, improving query efficiency by ~60%.</li>
-          <li>Translated business and data-mapping specifications into scalable SQL transformation logic, ensuring consistent metric definitions and traceability across systems.</li>
-          <li>Developed and automated ELT workflows using PostgreSQL, Python, and SQL-based transformations to standardize data cleansing and validation.</li>
-          <li>Analyzed complex relational data models to identify data dependencies, grain mismatches, and transformation requirements aligned with analytical reporting needs.</li>
-          <li>Collaborated with business analysts and stakeholders to gather requirements, validate outputs, and ensure datasets accurately reflected business rules.</li>
-          <li>Contributed to internal analytics acceleration initiatives using AI-assisted SQL analysis and optimization techniques.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section>
-      <h2>Selected Analytics Projects</h2>
-
-      <!-- SNOWFLAKE PROJECT -->
-      <div class="project">
-        <h3>End-to-End Analytics Platform on Snowflake</h3>
-        <p>
-          A production-style analytics engineering platform built on Snowflake using dbt, simulating an enterprise sales domain and delivering business-ready analytics.
-        </p>
-
-        <ul>
-          <li>Designed a layered Snowflake architecture (RAW → CURATED → MARTS) following analytics engineering best practices</li>
-          <li>Modeled star schema with validated dimension and fact tables using dbt</li>
-          <li>Enforced data quality using dbt tests (not-null, uniqueness, domain checks)</li>
-          <li>Built analytics marts for monthly revenue and customer spend optimized for low-latency queries</li>
-          <li>Implemented cost-aware warehouse strategy with auto-suspend and restricted raw access</li>
-        </ul>
-
-        <p class="stack">
-          Tech stack: Snowflake, dbt, SQL, Python, Git
-        </p>
-
-        <p>
-          <a href="https://github.com/Shreyas1432/snowflake-analytics-engineering" target="_blank">
-            View project on GitHub →
-          </a>
-        </p>
-      </div>
-
-      <!-- IRISH EMPLOYMENT -->
-      <div class="project">
-        <h3>Irish Employment Analytics</h3>
-        <p>
-          Analytics project examining employment trends across regions and sectors in Ireland using structured SQL-based transformations.
-        </p>
-
-        <ul>
-          <li>Developed SQL transformations to structure raw public datasets into reporting-ready tables</li>
-          <li>Enabled analysis of employment growth patterns and sector-level distribution</li>
-        </ul>
-
-        <p class="stack">
-          Tech stack: SQL, Python
-        </p>
-
-        <p>
-          <a href="https://github.com/Shreyas1432/Irish-Employment-Analytics" target="_blank">
-            View project on GitHub →
-          </a>
-        </p>
-      </div>
-
-      <!-- HEALTHCARE -->
-      <div class="project">
-        <h3>Healthcare Analytics System</h3>
-        <p>
-          Built analytics-ready datasets integrating healthcare procedures and waiting-time data to support capacity and demand analysis.
-        </p>
-
-        <ul>
-          <li>Designed SQL transformation logic to clean, join, and standardize multi-source datasets</li>
-          <li>Analyzed trends and operational bottlenecks to support data-driven insights</li>
-        </ul>
-
-        <p class="stack">
-          Tech stack: SQL, Python
-        </p>
-
-        <p>
-          <a href="https://github.com/Shreyas1432/Healthcare-Analytics" target="_blank">
-            View project on GitHub →
-          </a>
-        </p>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Analytics & Data Engineering:</strong> Analytics Engineering, ELT Pipelines, Data Modeling (Fact & Dimension), Business & Product Analytics</li>
-        <li><strong>Databases & Warehousing:</strong> Snowflake, PostgreSQL, Oracle EBS, Oracle Fusion (FBDI)</li>
-        <li><strong>Querying & Programming:</strong> SQL (Advanced), Python (Analytics & Automation)</li>
-        <li><strong>BI & Visualization:</strong> Power BI, Tableau</li>
-        <li><strong>AI & Applied Analytics:</strong> Machine Learning, Generative AI, Prompt Engineering</li>
-        <li><strong>Tools & Collaboration:</strong> Git, GitHub</li>
-      </ul>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>
-        © 2026 Shreyas Sudarshanam · Analytics Engineer · Open to relocation across Ireland
-      </p>
-    </footer>
-
+  <div class="masthead-top">
+    <span><span class="status-dot"></span>Available from Sept 2026</span>
+    <span>Dublin, Ireland</span>
   </div>
+
+  <h1>Shreyas<br>Sudarshanam</h1>
+  <p class="role-strip">Data Analyst · Analytics Engineer · Data Engineer</p>
+  <p class="lede">
+    Three years turning enterprise ERP data into decisions people can trust, and a master's thesis
+    that runs a leakage audit before it lets a model make a claim. I build the layer between raw
+    systems and results that hold up under scrutiny.
+  </p>
+  <p class="contact-line">
+    <a href="mailto:shreyas.sudarshanam@outlook.com">shreyas.sudarshanam@outlook.com</a>
+    <a href="https://www.linkedin.com/in/shreyas-sudarshanam/" target="_blank" rel="noreferrer">linkedin.com/in/shreyas-sudarshanam</a>
+    <a href="https://github.com/Shreyas1432" target="_blank" rel="noreferrer">github.com/Shreyas1432</a>
+  </p>
+  <div class="cta-row">
+    <a class="btn solid" href="https://procurement-governance-intelligence.streamlit.app/" target="_blank" rel="noreferrer">Open live dashboard</a>
+    <a class="btn" href="resume_MASTER.pdf" target="_blank" rel="noreferrer">Download resume</a>
+  </div>
+
+  <hr class="rule">
+
+  <section id="looking-for">
+    <p class="label"><span class="n">01</span> &nbsp;What I'm looking for</p>
+    <dl class="brief-grid">
+      <dt>Role</dt>
+      <dd>Data Analyst, Analytics Engineer, or Data Engineer. I sit at the genuine intersection of the three, built from three years of SQL, ETL, and reporting work that spans all of them.</dd>
+      <dt>Location</dt>
+      <dd>Based in Dublin. Fully open to relocating anywhere in Ireland.</dd>
+      <dt>Available</dt>
+      <dd>From September 2026, once my MSc confers. As a Level 9 graduate I hold Stamp 1G: 24 months of full-time work authorization with any employer, no sponsorship or permit process required.</dd>
+    </dl>
+  </section>
+
+  <hr class="rule">
+
+  <section id="flagship">
+    <p class="label"><span class="n">02</span> &nbsp;Flagship project</p>
+    <span class="flagship-tag">Master's thesis · deployed live</span>
+    <h2 class="flagship-title">Procurement Governance Intelligence</h2>
+    <p class="flagship-lede">
+      A leakage-audited analytics framework over 12.1 million Italian public procurement contracts,
+      built to survive GDPR Article 22 scrutiny, not just to score well.
+    </p>
+
+    <table class="ledger">
+      <thead>
+        <tr><th>Metric</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>161,695</td><td>Nodes in the buyer&ndash;supplier network graph</td></tr>
+        <tr><td>0.826</td><td>ROC&ndash;AUC on the 2020 hold&ndash;out, after leakage audit</td></tr>
+        <tr><td>13 &rarr; 1</td><td>Candidate features survived automated leakage screening</td></tr>
+        <tr><td>5.08%</td><td>Contracts flagged by the anomaly consensus ensemble</td></tr>
+      </tbody>
+    </table>
+
+    <div class="flagship-body">
+      <h3>The problem</h3>
+      <p>Prior procurement-risk models often re-learn their own label instead of predicting risk, validate network structure against a single unreliable metric, or produce results a regulator can't inspect. GDPR Article 22 requires the last one to be solvable.</p>
+
+      <h3>What I built</h3>
+      <p><strong>Network analysis.</strong> A 161,695-node bipartite buyer-supplier graph in NetworkX. Composite centrality and Louvain community detection, validated against three independent topology-native criteria rather than a single modularity score.</p>
+      <p><strong>Governance-risk classification.</strong> A 20+ check automated leakage audit that screened thirteen candidate features down to one genuinely non-leaky predictor, with the other twelve logged as reasoned nulls. Random Forest, XGBoost, and Logistic Regression trained under a strict temporal split (train 2014&ndash;2018, validate 2019, test 2020). XGBoost reached 0.826 ROC&ndash;AUC on the 2020 hold-out.</p>
+      <p><strong>Price anomaly detection.</strong> A three-detector unsupervised consensus ensemble (Isolation Forest, Local Outlier Factor, Elliptic Envelope) over category-restricted price residuals, calibrated to a 5.08% audit-prioritisation shortlist.</p>
+      <p><strong>Design discipline.</strong> Interpretable tree and graph methods chosen over deep learning specifically for auditability. Every rejected feature and method logged as a reasoned decision, not a silent drop.</p>
+
+      <h3>Shipped, not just modelled</h3>
+      <p>Deployed as a public Streamlit dashboard with five operational views: supplier risk, buyer dependency, governance risk mapping, competition analytics, and price variance. It reads only the pipeline's standardised outputs, so what's live is identical to what was audited.</p>
+
+      <h3>Who it's for, and why it matters</h3>
+      <p>An audit or procurement-oversight team can't investigate 12.1 million contracts by hand. This turns that haystack into a ranked, explainable shortlist: which suppliers and buyers to look at first, with the reasoning attached to every flag, so a non-technical investigator can defend the decision to act. The same instinct, spend that regulators can question and you can answer, is what I brought to financial-data validation at Deloitte.</p>
+    </div>
+
+    <div class="cta-row" style="margin-top: 22px;">
+      <a class="btn solid" href="https://procurement-governance-intelligence.streamlit.app/" target="_blank" rel="noreferrer">Open live dashboard</a>
+      <a class="btn" href="https://github.com/Shreyas1432/procurement-governance-intelligence" target="_blank" rel="noreferrer">View source</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="experience">
+    <p class="label"><span class="n">03</span> &nbsp;Experience</p>
+    <div class="role-head">
+      <h3>Analytics Engineer, Deloitte USI</h3>
+      <span class="dates mono">Dec 2022 &ndash; Aug 2025</span>
+    </div>
+    <p class="role-sub">Led the data extraction track across multiple ERP client engagements</p>
+
+    <div class="cluster">
+      <p class="cluster-label">Leadership &amp; delivery</p>
+      <ul class="plain">
+        <li>Led the data extraction track across multiple client engagements, running daily scrum calls and owning delivery end to end.</li>
+        <li>Co-led a 2-person workstream validating 500,000+ financial AP invoice records during an Oracle EBS cloud migration.</li>
+        <li>Worked directly with clients on query testing and optimization across AP, PO, Item, Supplier, Customer, and GL data objects.</li>
+        <li>Authored business data validation rules and data mapping specifications governing ERP transformation work.</li>
+      </ul>
+    </div>
+
+    <div class="cluster">
+      <p class="cluster-label">Multi-ERP data engineering</p>
+      <ul class="plain">
+        <li>Hands-on across Oracle EBS, PeopleSoft, JD Edwards, Oracle Fusion, and Oracle BI reporting.</li>
+        <li>Rewrote and optimized SQL extraction queries for AP invoices and FBDI templates, cutting batch runtime 60% (45 to 18 minutes).</li>
+        <li>Wrote advanced SQL: CTEs, window functions, complex multi-join queries, execution-plan tuning.</li>
+        <li>Designed star-schema Fact and Dimension models in PostgreSQL for financial reporting and audit reconciliation.</li>
+      </ul>
+    </div>
+
+    <div class="cluster">
+      <p class="cluster-label">Data quality &amp; applied GenAI</p>
+      <ul class="plain">
+        <li>Built automated Python validation scripts reaching a 99.8% schema mismatch catch rate before staging, plus an automated GL anomaly-detection process.</li>
+        <li>Built a query conversion and optimization tool using OpenAI premium models: Oracle SQL to PostgreSQL, iteratively optimized against user-specified issues.</li>
+        <li>Built Power BI dashboards for internal and client reporting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="skills">
+    <p class="label"><span class="n">04</span> &nbsp;Skills</p>
+    <dl class="skill-row" style="border-top: 1px solid var(--line);">
+      <dt>Databases</dt>
+      <dd>Advanced SQL (CTEs, window functions, execution-plan tuning), Oracle EBS, PostgreSQL, star-schema modelling</dd>
+    </dl>
+    <dl class="skill-row">
+      <dt>ERP platforms</dt>
+      <dd>Oracle EBS, PeopleSoft, JD Edwards, Oracle Fusion, Oracle BI reporting</dd>
+    </dl>
+    <dl class="skill-row">
+      <dt>Engineering</dt>
+      <dd>Python (pandas, NumPy), DuckDB, Polars, ETL pipeline design, scikit-learn, XGBoost, NetworkX</dd>
+    </dl>
+    <dl class="skill-row">
+      <dt>Reporting</dt>
+      <dd>Power BI, advanced Excel, Streamlit + Plotly, Tableau (foundational)</dd>
+    </dl>
+    <dl class="skill-row">
+      <dt>Building now</dt>
+      <dd>dbt, Snowflake, Databricks (proof-of-concept level)</dd>
+    </dl>
+  </section>
+
+  <hr class="rule">
+
+  <section id="projects">
+    <p class="label"><span class="n">05</span> &nbsp;Other work</p>
+    <p style="font-size: 15px; color: var(--ink-soft); max-width: 60ch; margin: 0 0 30px;">
+      Self-directed projects, built to answer a question rather than to pad a list. Each one starts with a problem and ends with something someone could actually use.
+    </p>
+
+    <div class="proj">
+      <div class="proj-top">
+        <h3>End-to-End Analytics on Snowflake</h3>
+        <span class="proj-tag">Modern data stack · dbt + Snowflake</span>
+      </div>
+      <dl class="why">
+        <dt>Problem</dt>
+        <dd>Teams build dashboards straight on raw warehouse tables, then quietly lose trust in the numbers when a silent data error slips through. There's no tested layer in between.</dd>
+        <dt>Why I built it</dt>
+        <dd>To work in the exact stack analytics-engineering roles run on (dbt on Snowflake) and to prove the discipline I care about, catching bad data before it reaches a decision, translates to the modern toolchain, not just to my Deloitte SQL work.</dd>
+        <dt>What it shows</dt>
+        <dd>A layered raw &rarr; curated &rarr; mart warehouse with dimensional models and automated data-quality assertions (not-null, uniqueness, domain checks) that fail the build when an assumption breaks, so a broken pipeline never ships a wrong dashboard.</dd>
+        <dt>Who it's for</dt>
+        <dd>Any analytics team standing up a governed warehouse layer that the business is willing to trust.</dd>
+      </dl>
+      <div class="proj-links">
+        <a href="https://github.com/Shreyas1432/snowflake-analytics-engineering" target="_blank" rel="noreferrer">View source &rarr;</a>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-top">
+        <h3>Irish Employment Analytics</h3>
+        <span class="proj-tag">SQL · public-data ETL</span>
+      </div>
+      <dl class="why">
+        <dt>Problem</dt>
+        <dd>Ireland's public employment data is published in a shape that's hard to read for trends, spread across releases, inconsistent, not decision-ready.</dd>
+        <dt>Why I built it</dt>
+        <dd>To run a full public dataset end to end on ground I actually care about, the Irish labour market I'm entering, and to keep my SQL-to-reporting muscle sharp on real, messy data rather than a clean tutorial set.</dd>
+        <dt>What it shows</dt>
+        <dd>A reproducible SQL transformation pipeline that turns raw public releases into analytics-ready tables, surfacing regional and sectoral employment trends over time.</dd>
+        <dt>Who it's for</dt>
+        <dd>Workforce and policy analysts, or a job-seeker trying to read where the Irish market is actually moving.</dd>
+      </dl>
+      <div class="proj-links">
+        <a href="https://github.com/Shreyas1432/Irish-Employment-Analytics" target="_blank" rel="noreferrer">View source &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Shreyas Sudarshanam</span>
+    <span>Dublin, Ireland</span>
+  </footer>
+
+</div>
 </body>
 </html>
